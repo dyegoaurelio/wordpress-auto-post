@@ -1,30 +1,38 @@
 urlscrape - 
-	vai receber uma url e devolver as informaÁıes dela
-	(tentar fazer de maneira que sÛ um script consiga pegar dados de todos os cÛdigos)
+	Esse script vai pegar as url e analiza-las, ser√° respons√°vel por fazer o webScraping
+	recebe: url do site pra analizar
+	retorna: dicion√°rio para ser publicado atrav√©s do script blogpost
+		
+	usei a biblioteca Newspaper - √© simples e funciona relativamente bem pra v√°rios sites, por√©m precisa de ajustes pra alguns
+	n√£o sei se √© possivel facilmente fazer esses ajustes
+	
+	como os sites est√£o se comportando com o c√≥digo como ele est√°:
+	
+	opovo - PERFEITAMENTE
+	g1.globo.com - pega tudo, menos as imagens secund√°rias
+	tribuna do cear√° - Todos os posts bem, por√©m com informa√ß√µes da publica√ß√£o misturadas com o texto
+	di√°rio do nordeste - N√£o pega a imagem, legenda e subtitulo ; pega o titulo e a not√≠cia toda
+	veja.abril.com.br = n√£o pega as imagens
 
-sites funcionando:
-opovo - PERFEITAMENTE
-g1.globo.com - pega tudo, menos as imagens secund·rias
-tribuna do cear· - Todos os posts bem, porÈm com "por tribuna tal hora" misturado com o texto
-di·rio do nordeste - N„o pega a imagem, legenda e subtitulo ; pega o titulo e a notÌcia toda
-veja.abril.com.br = n„o pega as imagens
+	TO DO: !!!!!!!!
+	fazer alguma maneira de reconhecer os sites base: ex (g1.globo.com) e agir diferente pra cada site, otimizando os resultados, tbm tem q saber como otimizar pros problemas desses sites
 
 
-
-falta: colocar fonte do artigo no fim do texto
-
-
-blogpost -
-	(tem a url e senha do site) publica o post com as informaÁıes q ele recebe
+blogpost - recebe o dicion√°rio de conte√∫do a ser publicado e p√µe no site
+	(tem a url e senha do site)
 
 dicionario -
-	vai ter um dicionario de categorias e (talvez tags), com uma funÁ„o pra poder escrever errado as categorias e ele saber qual È
-	(OK)funÁ„o pra converter uma data f·cil de escrever para o formato do python 
+	serve pra organizar as categorias e tags e data das publica√ß√µes
+	vou por uma fun√ß√£o com as categorias do site (talvez tags, n sei se √© necess√°rio)
+	e j√° fiz uma fun√ß√£o pra converter a data q o post vai ser publicado para o formato datetime.datetime
+	
 
 publicarWP-
 	vai usar os outros scripts e publicar tudo
 
 readtxturl - 
-	vai pegar v·rias urls em um bloco de texto(deixar f·cil mudanÁa para outro tipo de documento) e rodar publicarWP para cada url.
+	essa vai ser a ultima fun√ß√£o
+	pra poder simplesmente colocar todos os links num documento de texto e postar todos
+	vai pegar v√°rias urls em um bloco de texto(deixar f√°cil mudan√ßa para outro tipo de documento) e rodar publicarWP para cada url.
 	
 	
