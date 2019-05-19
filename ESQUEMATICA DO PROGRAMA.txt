@@ -1,0 +1,30 @@
+urlscrape - 
+	vai receber uma url e devolver as informações dela
+	(tentar fazer de maneira que só um script consiga pegar dados de todos os códigos)
+
+sites funcionando:
+opovo - PERFEITAMENTE
+g1.globo.com - pega tudo, menos as imagens secundárias
+tribuna do ceará - Todos os posts bem, porém com "por tribuna tal hora" misturado com o texto
+diário do nordeste - Não pega a imagem, legenda e subtitulo ; pega o titulo e a notícia toda
+veja.abril.com.br = não pega as imagens
+
+
+
+falta: colocar fonte do artigo no fim do texto
+
+
+blogpost -
+	(tem a url e senha do site) publica o post com as informações q ele recebe
+
+dicionario -
+	vai ter um dicionario de categorias e (talvez tags), com uma função pra poder escrever errado as categorias e ele saber qual é
+	(OK)função pra converter uma data fácil de escrever para o formato do python 
+
+publicarWP-
+	vai usar os outros scripts e publicar tudo
+
+readtxturl - 
+	vai pegar várias urls em um bloco de texto(deixar fácil mudança para outro tipo de documento) e rodar publicarWP para cada url.
+	
+	
