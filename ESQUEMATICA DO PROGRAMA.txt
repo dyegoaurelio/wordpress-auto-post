@@ -1,30 +1,26 @@
 urlscrape - 
-	vai receber uma url e devolver as informaÁıes dela
-	(tentar fazer de maneira que sÛ um script consiga pegar dados de todos os cÛdigos)
+	vai receber uma url e devolver as informa√ß√µes dela
+	(tentar fazer de maneira que s√≥ um script consiga pegar dados de todos os c√≥digos)
 
 sites funcionando:
 opovo - PERFEITAMENTE
-g1.globo.com - pega tudo, menos as imagens secund·rias
-tribuna do cear· - Todos os posts bem, porÈm com "por tribuna tal hora" misturado com o texto
-di·rio do nordeste - N„o pega a imagem, legenda e subtitulo ; pega o titulo e a notÌcia toda
-veja.abril.com.br = n„o pega as imagens
+g1.globo.com - pega tudo, menos as imagens secund√°rias
+tribuna do cear√° - Todos os posts bem, por√©m com "por tribuna tal hora" misturado com o texto
+di√°rio do nordeste - N√£o pega a imagem, legenda e subtitulo ; pega o titulo e a not√≠cia toda
+veja.abril.com.br = n√£o pega as imagens
 
-
-
-falta: colocar fonte do artigo no fim do texto
 
 
 blogpost -
-	(tem a url e senha do site) publica o post com as informaÁıes q ele recebe
+	(tem a url e senha do site) publica o post com as informa√ß√µes q ele recebe
 
 dicionario -
-	vai ter um dicionario de categorias e (talvez tags), com uma funÁ„o pra poder escrever errado as categorias e ele saber qual È
-	(OK)funÁ„o pra converter uma data f·cil de escrever para o formato do python 
+	(OK)vai ter um dicionario de categorias e (talvez tags), com uma fun√ß√£o pra poder escrever incompleta as categorias e completar
+		(fiz s√≥ pra categorias, mas se necess√°rio s√≥ copiar pra tags)
+	(OK)fun√ß√£o pra converter uma data f√°cil de escrever para o formato do python 
 
 publicarWP-
 	vai usar os outros scripts e publicar tudo
 
 readtxturl - 
-	vai pegar v·rias urls em um bloco de texto(deixar f·cil mudanÁa para outro tipo de documento) e rodar publicarWP para cada url.
-	
-	
+vai pegar v√°rias urls em um bloco de texto(deixar f√°cil mudan√ßa para outro tipo de documento) e rodar publicarWP para cada url.
