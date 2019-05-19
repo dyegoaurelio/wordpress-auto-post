@@ -2,8 +2,17 @@ import requests
 import os
 from newspaper import Article
 from blogpost import make_post
+#biblioteca para descobrir o hostname dos sites
+from urllib.parse import urlparse
 
 url =input()
+
+def scrape(url):
+    host = urlparse(url).hostname
+
+    '''if host == 'tribunadoceara.uol.com.br' :
+        chamar o scrape desse site e assim vai
+    '''
 
 def article_content(url):
     #criando dicionario que vai ser usado na funcao makepost
