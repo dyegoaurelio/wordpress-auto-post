@@ -1,5 +1,15 @@
 from datetime import datetime,time,date
 
+#para converter palavras acentuadas em sem acentos
+#pip install unidecode
+from unidecode import unidecode
+
+#CATEGORIAS DO SITE
+
+categorias =['Ceará','Fortaleza','Região Metropolitana','Esportes','Policial','Politica']
+
+
+
 def convertData(data,stdrHora=8):
     '''
 
@@ -93,7 +103,7 @@ def convertData(data,stdrHora=8):
             except IndexError: pass
 
             if cont != len(hora) - len(horaconv):
-                print('WRONG INPUT')
+                print('WRONG DATA INPUT')
                 return False
         else: #NESSE CASO SÓ FOI FORNECIDO A HORA (NÃO FOI ENCOTRADO SEPARADORES DE HORA COM MINUTOS)
             horaconv.append(hora[index])
@@ -106,7 +116,7 @@ def convertData(data,stdrHora=8):
     try:
         x = time(horaconv[0],horaconv[1],horaconv[2],horaconv[3])
     except:
-        print('WRONG INPUT')
+        print('WRONG DATA INPUT')
         return False
 
     #no codigo acima a hora já ficou formatada de maneira que cada numero ocupa
@@ -129,7 +139,7 @@ def convertData(data,stdrHora=8):
             except IndexError: pass
 
             if cont != len(dia) - len(diaconv):
-                print('WRONG INPUT')
+                print('WRONG DATA INPUT')
                 return False
         else:  # NESSE CASO SÓ FOI FORNECIDO O DIA (NÃO FOI ENCOTRADO SEPARADORES DE DIA)
             diaconv.append(dia[index])
@@ -140,21 +150,36 @@ def convertData(data,stdrHora=8):
             diaconv.append(datetime.today().month)
             diaconv.append(datetime.today().year)
         if len(diaconv) > 3:
-            print('WRONG INPUT')
+            print('WRONG DATA INPUT')
             return False
         if diaconv[2] <100:
             diaconv[2]+=2000
     try:
         x = date(diaconv[2],diaconv[1],diaconv[0])
     except:
-        print('WRONG INPUT')
+        print('WRONG DATA INPUT')
         return False
 
     #formatacao completa da data
     return datetime(diaconv[2],diaconv[1],diaconv[0],horaconv[0],horaconv[1],horaconv[2],horaconv[3])
 
 
+def categoryComplete(nome,categorias=categorias):
+    '''
 
+    :param nome: recebe um nome e se ele estiver nas categorias previamente estabelecidas, retorna ela, se nao renorna None
+    :param categorias: opcional, lista de categorias
+    :return: categoria correspondente
+    '''
+    try:
+        index = next(i for i, v in enumerate(categorias) if unidecode(v[:len(nome)].lower())== unidecode(nome.lower()))
+    except StopIteration:
+        return None
+    return categorias[index]
+
+if __name__ == '__main__':
+    print('categoryComplete: ',categoryComplete('regiao'))
+    print ('convertData ',convertData('31/12'))
 
 
 
