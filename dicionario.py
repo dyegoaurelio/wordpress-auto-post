@@ -17,6 +17,8 @@ def convertData(data,stdrHora=8):
     stdrHora vai ser a hora pra publicacao ser postade se nao for fornecido horario
     :return: vai retornar uma instancia de datetime.datetime() ou False se o input estiver errado
     '''
+    if data == '0':
+        return None
     conversao = []
     cont = 0
     separadores = [')' , ']','}', ',', ';']
@@ -171,16 +173,13 @@ def categoryComplete(nome,categorias=categorias):
     :param categorias: opcional, lista de categorias
     :return: categoria correspondente
     '''
+    nome = nome.strip()
     try:
         index = next(i for i, v in enumerate(categorias) if unidecode(v[:len(nome)].lower())== unidecode(nome.lower()))
     except StopIteration:
-        return None
+        return False
     return categorias[index]
 
 if __name__ == '__main__':
-    print('categoryComplete: ',categoryComplete('regiao'))
-    print ('convertData ',convertData('31/12'))
-
-
-
-
+    print('categoryComplete: ',categoryComplete('regiao       '))
+    print ('convertData ',convertData('10'))

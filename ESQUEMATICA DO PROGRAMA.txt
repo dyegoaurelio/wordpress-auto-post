@@ -1,26 +1,31 @@
 urlscrape - 
-	vai receber uma url e devolver as informa√ß√µes dela
-	(tentar fazer de maneira que s√≥ um script consiga pegar dados de todos os c√≥digos)
+	funÁ„o scrape:
+		vai receber uma url e devolver as informaÁıes dela
 
 sites funcionando:
 opovo - PERFEITAMENTE
-g1.globo.com - pega tudo, menos as imagens secund√°rias
-tribuna do cear√° - Todos os posts bem, por√©m com "por tribuna tal hora" misturado com o texto
-di√°rio do nordeste - N√£o pega a imagem, legenda e subtitulo ; pega o titulo e a not√≠cia toda
-veja.abril.com.br = n√£o pega as imagens
+tribuna do cear· - Perfeito
+g1.globo.com - pega tudo, menos as imagens secund·rias
+		em algumas paginas so pega o titulo e subtitulo (FALTA CORPO DA NOTICIA E IMAGENS SECUNDARIAS)
+di·rio do nordeste - N„o pega a imagem, legenda e subtitulo ; pega o titulo e a notÌcia toda
+veja.abril.com.br = n„o pega as imagens
 
 
 
-blogpost -
-	(tem a url e senha do site) publica o post com as informa√ß√µes q ele recebe
+blogpost - (tem a url e senha do site)
+	funÁ„o make_post:
+	 	publica o post com as informaÁıes q ele recebe 
 
 dicionario -
-	(OK)vai ter um dicionario de categorias e (talvez tags), com uma fun√ß√£o pra poder escrever incompleta as categorias e completar
-		(fiz s√≥ pra categorias, mas se necess√°rio s√≥ copiar pra tags)
-	(OK)fun√ß√£o pra converter uma data f√°cil de escrever para o formato do python 
+	(OK)vai ter um dicionario de categorias e (talvez tags), com uma funÁ„o pra poder escrever incompleta as categorias e completar
+		(fiz sÛ pra categorias, mas se necess·rio sÛ copiar pra tags)
+	(OK)funÁ„o pra converter uma data f·cil de escrever para o formato do python 
 
 publicarWP-
-	vai usar os outros scripts e publicar tudo
+	funÁ„o user_input:
+	(OK)	recebe todos os dados necess·rios do usu·rio e chama os devidos scrpts para analiza-los
 
 readtxturl - 
-vai pegar v√°rias urls em um bloco de texto(deixar f√°cil mudan√ßa para outro tipo de documento) e rodar publicarWP para cada url.
+vai pegar v·rias urls em um bloco de texto(deixar f·cil mudanÁa para outro tipo de documento) e rodar publicarWP para cada url.
+
+

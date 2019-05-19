@@ -8,7 +8,7 @@ from wordpress_xmlrpc.methods import media, posts
 from datetime import datetime
 
 
-def make_post(content, categorys, tags, date = False):
+def make_post(content, categorys, tags, date = None):
     '''
     :param content: dict() formatado corretamente
     :param categorys: lista com as categorias do post
@@ -22,10 +22,18 @@ def make_post(content, categorys, tags, date = False):
     post = WordPressPost()
     post.title = content['title']
     post.content = content['body']
-    post.terms_names = {
-        'post_tag': tags,
-        'category': categorys
-    }
+
+    if tags[0] != '0':
+
+        post.terms_names = {
+            'post_tag': tags
+        }
+
+    if categorys[0] != '0':
+        post.terms_names = {
+            'category': categorys
+        }
+
     # Lets Now Check How To Upload Media Files
     filename = content['image']
     data = {
@@ -44,10 +52,13 @@ def make_post(content, categorys, tags, date = False):
     post.post_status = 'publish'
 
     # marcando p/ o post ser postado na data desejada
-    if date != False:
+    if date != None:
         post.date = date
     post.id = wp.call(posts.NewPost(post))
     # Set Default Status For Post .i.e Publish Default Is Draft
 
     # We Are Done With This Part :) Lets Try To Run It
-    print("Sucessfully Posted To Our Blog !")
+    if not date:
+        print("Postado com sucesso !")
+    if date:
+        print("Vai ser postado em ",date,'!')
