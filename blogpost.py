@@ -16,7 +16,7 @@ def make_post(content, categorys, tags, date = False):
     :param date: data para o post ser publicado ( formato datetime.datetime())
     :return:
     '''
-    #URL DO SITE, USUARIO , SENHA !!!
+    #URL DO SITE, USUARIO , SENHA
     wp = Client('https://estanislau2.000webhostapp.com/xmlrpc.php',
                 'admin', 'admin')
     post = WordPressPost()
@@ -26,7 +26,7 @@ def make_post(content, categorys, tags, date = False):
         'post_tag': tags,
         'category': categorys
     }
-    # Lets Now Check How To Upload Media Files
+    # Upload dos arquivos de mídia
     filename = content['image']
     data = {
         'name': content['title']+ '.jpeg',
@@ -44,7 +44,7 @@ def make_post(content, categorys, tags, date = False):
     post.post_status = 'publish'
 
     # marcando p/ o post ser postado na data desejada
-    if date != False:
+    if(date):
         post.date = date
     post.id = wp.call(posts.NewPost(post))
     # Set Default Status For Post .i.e Publish Default Is Draft
