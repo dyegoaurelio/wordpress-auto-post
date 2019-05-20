@@ -22,10 +22,7 @@ dicionario -
 	(OK)função pra converter uma data fácil de escrever para o formato do python 
 
 publicarWP-
-	função user_input:
-	(OK)	recebe todos os dados necessários do usuário e chama os devidos scrpts para analiza-los
-
-readtxturl - 
-vai pegar várias urls em um bloco de texto(deixar fácil mudança para outro tipo de documento) e rodar publicarWP para cada url.
-
-
+	função user_inputUpdate:
+		recebe as urls, categorias, tags e datas e chama os outros scripts para analizar e postar
+			(mais rápida, porem com mais passos q a fast)
+				a fast ignora a verificação de url, e ignora tags, data e categoria

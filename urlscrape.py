@@ -5,6 +5,7 @@ from blogpost import make_post
 from urllib.parse import urlparse
 import re
 from unidecode import unidecode
+import random
 
 def scrape(url):
     '''
@@ -62,9 +63,11 @@ def newspaperScrape(url):
     # Lets Download And Save The Image
     # Using Requests To Download And Save The Image File In Our Local Directory
     resp = requests.get(article.top_image)
-    with open('1.jpg', 'wb') as imagefile:
+    hash = random.getrandbits(128)
+    hash = str(hash)
+    with open( hash + '.jpg', 'wb+') as imagefile:
         imagefile.write(resp.content)
-    content['image'] = '1.jpg'
+    content['image'] = hash + '.jpg'
     return content
 
 def opovo_scrape(url):
@@ -89,6 +92,8 @@ def tribuna_scrape(url):
     listen = re.search(r'Por Tribuna do Ceará', conteudo['body'])
     if listen == None:
         listen = re.search(r'Por TV Jangadeiro', conteudo['body'])
+    if listen == None:
+        listen = re.search(r'por jangadeiro', conteudo['body'].lower())
     if listen == None:
         listen = re.search(r'por futeboles', conteudo['body'].lower())
     if listen == None:

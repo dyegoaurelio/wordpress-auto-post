@@ -4,11 +4,12 @@ from wordpress_xmlrpc.methods.users import GetUserInfo
 from wordpress_xmlrpc import Client, WordPressPost
 from wordpress_xmlrpc.compat import xmlrpc_client
 from wordpress_xmlrpc.methods import media, posts
+from os import remove
 
 from datetime import datetime
 
 
-def make_post(content, categorys, tags, date = None):
+def make_post(content, categorys='0', tags='0', date = None):
     '''
     :param content: dict() formatado corretamente
     :param categorys: lista com as categorias do post
@@ -49,6 +50,11 @@ def make_post(content, categorys, tags, date = None):
     # Above Code Just Uploads The Image To Our Gallery
     # For Adding It In Our Main Post We Need To Save Attachment ID
     post.thumbnail = attachment_id
+
+    #deletando do pc a imagem
+    remove(filename)
+
+    #setando para o post ser publicado (nao ficar de rascunho)
     post.post_status = 'publish'
 
     # marcando p/ o post ser postado na data desejada
