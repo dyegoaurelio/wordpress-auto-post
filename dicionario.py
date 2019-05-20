@@ -156,11 +156,16 @@ def convertData(data,stdrHora=8):
             return False
         if diaconv[2] <100:
             diaconv[2]+=2000
-    try:
-        x = date(diaconv[2],diaconv[1],diaconv[0])
-    except:
-        print('WRONG DATA INPUT')
-        return False
+        try:
+            x = date(diaconv[2],diaconv[1],diaconv[0])
+        except:
+            print('WRONG DATA INPUT')
+            return False
+
+    if len(diaconv) == 0:
+        diaconv.append(datetime.today().day)
+        diaconv.append(datetime.today().month)
+        diaconv.append(datetime.today().year)
 
     #formatacao completa da data
     return datetime(diaconv[2],diaconv[1],diaconv[0],horaconv[0],horaconv[1],horaconv[2],horaconv[3])
@@ -182,4 +187,4 @@ def categoryComplete(nome,categorias=categorias):
 
 if __name__ == '__main__':
     print('categoryComplete: ',categoryComplete('regiao       '))
-    print ('convertData ',convertData('10'))
+    print ('convertData ',convertData('10:30'))

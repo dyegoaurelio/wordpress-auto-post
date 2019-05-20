@@ -19,7 +19,7 @@ def make_post(content, categorys='0', tags='0', date = None):
     '''
     #URL DO SITE, USUARIO , SENHA !!!
     wp = Client('https://estanislau2.000webhostapp.com/xmlrpc.php',
-                'admin', 'admin')
+	'admin', 'admin')
     post = WordPressPost()
     post.title = content['title']
     post.content = content['body']
@@ -29,11 +29,15 @@ def make_post(content, categorys='0', tags='0', date = None):
         post.terms_names = {
             'post_tag': tags
         }
-
-    if categorys[0] != '0':
-        post.terms_names = {
-            'category': categorys
-        }
+    try:
+        categorys[0] == 0
+    except IndexError:
+        pass
+    else:
+        if categorys[0] != '0':
+            post.terms_names = {
+                'category': categorys
+            }
 
     # Lets Now Check How To Upload Media Files
     filename = content['image']
@@ -65,6 +69,6 @@ def make_post(content, categorys='0', tags='0', date = None):
 
     # We Are Done With This Part :) Lets Try To Run It
     if not date:
-        print("Postado com sucesso !")
+        print(post.title, " Postado com sucesso !")
     if date:
-        print("Vai ser postado em ",date,'!')
+        print(post.title, " Vai ser postado em ",date,'!')
