@@ -121,5 +121,10 @@ def tribuna_scrape(url):
 
 if __name__ == '__main__':
     url = input('entre com a url (teste do script urlscrape)').strip()
-    scrape(url)
-    #make_post(scrape(url),['Fortaleza' ,'News','ceará'],['autopost'])
+    data = scrape(url)
+    print('Title')
+    print(data['title'])
+    print('\nBody')
+    print(data['body'])
+    print('\nImage')
+    print(data['image'])

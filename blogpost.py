@@ -8,6 +8,9 @@ from os import remove
 
 from datetime import datetime
 
+import json
+with open('auth.json') as f:
+  authData = json.load(f)
 
 def make_post(content, categorys='0', tags='0', date = None):
     '''
@@ -18,8 +21,8 @@ def make_post(content, categorys='0', tags='0', date = None):
     :return:
     '''
     #URL DO SITE, USUARIO , SENHA !!!
-    wp = Client('https://estanislau2.000webhostapp.com/xmlrpc.php',
-	'admin', 'admin')
+    wp = Client( authData['url'] + '/xmlrpc.php',
+	authData['adminUsername'], authData['adminPassword'])
     post = WordPressPost()
     post.title = content['title']
     post.content = content['body']
